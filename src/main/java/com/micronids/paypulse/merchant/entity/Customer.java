@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "customer")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,7 +30,7 @@ public class Customer {
     @Column(length = 20)
     private String contactNumber;
 
-    @Column(length = 20)
-    private String gst_id;
+    @Column(length = 20,name = "gst_id")
+    private String gstId;
 
 }

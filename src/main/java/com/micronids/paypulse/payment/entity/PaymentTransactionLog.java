@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "payment_transaction_log")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -41,7 +41,7 @@ public class PaymentTransactionLog {
     @Column(name = "actor", nullable = false)
     private PaymentActor actor;
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "occurred_at")
     private LocalDateTime occurredAt;
 
 }

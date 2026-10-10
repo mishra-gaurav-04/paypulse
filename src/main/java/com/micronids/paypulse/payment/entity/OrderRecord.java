@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "order_record")
 @Getter
 @Setter
 @AllArgsConstructor

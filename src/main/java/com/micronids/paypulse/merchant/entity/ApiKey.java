@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table
+@Table(name = "api_key")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,14 +23,14 @@ public class ApiKey {
     @JoinColumn(name = "merchant_id",nullable = false)
     private Merchant merchant;
 
-    @Column(nullable = false,length = 50)
-    private String key_id;
+    @Column(nullable = false,length = 50,name = "key_id")
+    private String keyId;
 
-    @Column(nullable = false,length = 500)
-    private String key_secret_hash;
+    @Column(nullable = false,length = 500,name = "key_secret_hash")
+    private String keySecretHash;
 
-    @Column(nullable = false,length = 500)
-    private String webhook_secret_hash;
+    @Column(nullable = false,length = 500,name = "webhook_secret_hash")
+    private String webhookeScretHash;
 
     @Column(nullable = false,length = 15)
     @Enumerated(EnumType.STRING)
@@ -40,6 +40,8 @@ public class ApiKey {
     private Boolean enabled = true;
     private LocalDateTime lastUsedAt;
     private LocalDateTime rotatedAt;
-    private LocalDateTime grace_period_expires_at;
+
+    @Column(name = "grace_period_expires_at",nullable = false)
+    private LocalDateTime gracePeriodExpiresAt;
 
 }

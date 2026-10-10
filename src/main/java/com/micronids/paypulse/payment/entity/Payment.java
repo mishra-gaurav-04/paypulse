@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Entity
+@Table(name = "payment")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -27,7 +28,7 @@ public class Payment {
     @JoinColumn(name = "order_id",nullable = false)
     private OrderRecord orderRecord;
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "merchant_id")
     private UUID merchantId;
 
     @Embedded
@@ -48,23 +49,28 @@ public class Payment {
     @Column(name = "method_details", columnDefinition = "jsonb")
     private Map<String,Object> methodDetails;
 
-    @Column(length = 100)
+    @Column(length = 100,name = "bank_reference")
     private String bankReference;
 
-    @Column(length = 100)
+    @Column(length = 100,name = "error_code")
     private String errorCode;
 
-    @Column(length = 100)
+    @Column(length = 100,name = "error_description")
     private String errorDescription;
 
+    @Column(name = "authorized_at")
     private LocalDateTime authorizedAt;
 
+    @Column(name = "captured_at")
     private LocalDateTime capturedAt;
 
+    @Column(name = "failed_at")
     private LocalDateTime failedAt;
 
+    @Column(name = "refunded_at")
     private LocalDateTime refundedAt;
 
+    @Column(name = "settled_at")
     private LocalDateTime settledAt;
 
 

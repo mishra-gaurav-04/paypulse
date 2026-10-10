@@ -44,19 +44,19 @@ public class Merchant {
     @Enumerated(EnumType.STRING)
     private MerchantStatus merchantStatus = MerchantStatus.PENDING_KYC;
 
-    @Column(length = 20)
-    private String gst_id;
+    @Column(length = 20,name = "gst_id")
+    private String gstId;
 
-    @Column(length = 20)
-    private String pan_id;
+    @Column(length = 20,name = "pan_id")
+    private String panId;
 
-    @Column(length = 200)
+    @Column(length = 200,name = "settlement_bank_account")
     private String settlementBankAccount;
 
-    @Column(length = 20)
+    @Column(length = 20,name = "settlement_bank_ifsc")
     private String settlementBankIfsc;
 
-    @Column(length = 200)
+    @Column(length = 200,name = "settlement_bank_account_holder_name")
     private String settlementBankAccountHolderName;
 
 }
