@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: paypulse
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER_NAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+    porperties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgresSQLDialect
