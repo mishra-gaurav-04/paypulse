@@ -1,4 +1,4 @@
-package com.micronids.paypulse.operation;
+package com.micronids.paypulse.operation.entity;
 
 import com.micronids.paypulse.shared.entityObjects.Money;
 import com.micronids.paypulse.shared.enums.SettlementStatus;

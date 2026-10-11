@@ -1,6 +1,5 @@
 package com.micronids.paypulse.payment.entity;
 
-import com.micronids.paypulse.merchant.entity.Merchant;
 import com.micronids.paypulse.shared.entityObjects.Money;
 import com.micronids.paypulse.shared.enums.OrderStatus;
 import jakarta.persistence.*;
