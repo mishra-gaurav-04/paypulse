@@ -30,7 +30,7 @@ public class ApiKey {
     private String keySecretHash;
 
     @Column(nullable = false,length = 500,name = "webhook_secret_hash")
-    private String webhookeScretHash;
+    private String webhookScretHash;
 
     @Column(nullable = false,length = 15)
     @Enumerated(EnumType.STRING)
