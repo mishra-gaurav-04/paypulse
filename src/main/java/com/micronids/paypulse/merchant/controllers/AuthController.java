@@ -27,7 +27,7 @@ public class AuthController {
     public ResponseEntity<AppResponse<MerchantSignUpResponse>> singup(@RequestBody @Valid MerchantSignUpRequest request){
        MerchantSignUpResponse response = authService.signup(request);
        return ResponseEntity.status(HttpStatus.CREATED)
-               .body(BuildAppResponse.buildAppRespnse(
+               .body(BuildAppResponse.buildAppResponse(
                        AppConstants.MERCHANT_CREATED,response
                ));
     }

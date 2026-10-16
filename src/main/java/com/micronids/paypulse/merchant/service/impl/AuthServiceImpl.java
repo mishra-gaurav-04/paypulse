@@ -9,6 +9,8 @@ import com.micronids.paypulse.merchant.repository.MerchantRepository;
 import com.micronids.paypulse.merchant.service.AuthService;
 import com.micronids.paypulse.shared.enums.MerchantStatus;
 import com.micronids.paypulse.shared.enums.UserRole;
+import com.micronids.paypulse.shared.exceptions.exception.DuplicateResourceException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,9 +23,10 @@ public class AuthServiceImpl implements AuthService {
     private final AppUserRepository appUserRepository;
 
     @Override
+    @Transactional
     public MerchantSignUpResponse signup(MerchantSignUpRequest request) {
         if(merchantRepository.existsByEmail(request.email())){
-            throw new RuntimeException("Merchant with this email already exists: "+request.email());
+            throw new DuplicateResourceException("Merchant with this email already exists: "+request.email());
         }
 
         Merchant merchant = Merchant.builder()
@@ -43,7 +46,7 @@ public class AuthServiceImpl implements AuthService {
                 .userRole(UserRole.OWNER)
                 .build();
 
-        appUser = appUserRepository.save(appUser);
+        appUserRepository.save(appUser);
 
         return MerchantSignUpResponse.builder()
                 .id(merchant.getId())

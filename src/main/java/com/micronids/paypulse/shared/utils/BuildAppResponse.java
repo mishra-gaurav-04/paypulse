@@ -5,7 +5,7 @@ import com.micronids.paypulse.shared.generic.AppResponse;
 public class BuildAppResponse {
     private BuildAppResponse(){}
 
-    public static <T>AppResponse<T> buildAppRespnse(String message, T data){
+    public static <T>AppResponse<T> buildAppResponse(String message, T data){
         return AppResponse.<T>builder()
                 .success(true)
                 .message(message)
