@@ -34,10 +34,12 @@ public class ApiKey {
 
     @Column(nullable = false,length = 15)
     @Enumerated(EnumType.STRING)
-    private ApiKeyEnvironment environment;
+    private ApiKeyEnvironment apiKeyEnvironment;
 
     @Column(nullable = false)
+    @Builder.Default
     private Boolean enabled = true;
+
     private LocalDateTime lastUsedAt;
     private LocalDateTime rotatedAt;
 
